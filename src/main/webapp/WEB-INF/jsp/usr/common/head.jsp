@@ -17,26 +17,33 @@
 <script src="/resource/common.js" defer="defer"></script>
 </head>
 <body>
-	<div class="h-20 flex container mx-auto text-4xl">
-		<div><a class="h-full px-3 flex items-center" href="/"><span>로고</span></a></div>
-		<div class="flex-grow"></div>
-		<ul class="flex">
-			<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/"><span>HOME</span></a></li>
-			<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/article/list?boardId=1"><span>NOTICE</span></a></li>
-			<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/article/list?boardId=2"><span>FREE</span></a></li>
-			<c:if test="${rq.getLoginedMemberId() == 0 }">
-				<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/member/login"><span>LOGIN</span></a></li>
-				<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/member/join"><span>JOIN</span></a></li>
-			</c:if>
-			<c:if test="${rq.getLoginedMemberId() != 0 }">
-				<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/member/myPage"><span>MYPAGE</span></a></li>
-				<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/member/doLogout"><span>LOGOUT</span></a></li>
-			</c:if>
-			<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/home/apiTest"><span>APITEST</span></a></li>
-			<li class="hover:underline"><a class="h-full px-3 flex items-center" href="/usr/home/apiTest2"><span>APITEST2</span></a></li>
-		</ul>
-	</div>
-	
+	<div class="top">
+		<div class="h-20 flex mx-auto text-4xl nav">
+			<div class="brand">
+				<a href="/"><span>로고</span></a>
+			</div>
+			<nav>
+				<ul class="flex">
+					<li class="hover:underline menu"><a href="/"><span>제품소개</span></a></li>
+					<li class="hover:underline menu"><a href="/usr/article/list?boardId=1">요금안내</a></li>
+					<li class="hover:underline menu"><a href="/usr/article/list?boardId=2">활용사례</a></li>
+					<li class="hover:underline menu"><a href="/usr/article/list?boardId=2">고객지원</a></li>
+				</ul>
+			</nav>
+			<div class="flex-grow"></div>
+			<nav>
+				<ul class="flex">
+					<c:if test="${rq.getLoginedMemberId() == 0 }">
+					<li class="hover:underline menu"><a href="/usr/member/login">로그인</a></li>
+					</c:if>
+					<c:if test="${rq.getLoginedMemberId() != 0 }">
+					<li class="hover:underline menu"><a href="/usr/member/doLogout">로그아웃</a></li>
+					</c:if>
+				</ul>
+			</nav>
+			
+			</div>
+	</div>		
 	<section class="my-3 text-2xl">
 		<div class="container mx-auto px-3">
 			<h1>${pageTitle }</h1>

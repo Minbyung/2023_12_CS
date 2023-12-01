@@ -14,8 +14,8 @@ public class MemberService {
 		this.memberDao = memberDao;
 	}
 
-	public void joinMember(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
-		memberDao.joinMember(loginId, loginPw, name, nickname, cellphoneNum, email);
+	public void joinMember(String loginId, String loginPw, String name, String cellphoneNum, String teamName) {
+		memberDao.joinMember(loginId, loginPw, name, cellphoneNum, teamName);
 	}
 
 	public Member getMemberById(int id) {

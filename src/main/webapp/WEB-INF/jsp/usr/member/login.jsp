@@ -26,29 +26,25 @@
 			form.submit();
 		}
 	</script>
-	
-	<section class="mt-8 text-xl">
-		<div class="container mx-auto px-3">
+
+	<section class="mt-48 text-xl">
+		<div class="login-box">
+			<h1>로그인</h1>
 			<form action="doLogin" method="post" onsubmit="loginForm_onSubmit(this); return false;">
-				<div class="table-box-type">
-					<table class="table table-lg">
-						<tr>
-							<th>아이디</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="loginId" type="text" placeholder="아이디를 입력해주세요"/></td>
-						</tr>
-						<tr>
-							<th>비밀번호</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="loginPw" type="text" placeholder="비밀번호를 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<td class="text-center" colspan="2"><button class="btn-text-color btn btn-wide btn-outline">로그인</button></td>
-						</tr>
-					</table>
-				</div>
+				<input class="input input-bordered input-primary w-full" name="loginId" type="text" placeholder="이메일을 입력해주세요"/>
+				<div class="space-box h-7"></div>
+
+				<input class="input input-bordered input-primary w-full" name="loginPw" type="text" placeholder="비밀번호를 입력해주세요" />
+			
+				<button>로그인</button>
+
 			</form>
 			
-			<div class="btns mt-2">
-				<button class="btn-text-color btn btn-outline btn-sm" onclick="history.back();">뒤로가기</button>
+			<div class="joinus">
+				<div class="text-gray-400 mt-12">가제가 처음이신가요?</div>
+				<a href="/usr/member/join">
+					<button class="mt-12" >회원가입</button>
+				</a>
 			</div>
 		</div>
 	</section>

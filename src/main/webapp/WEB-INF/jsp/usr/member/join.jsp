@@ -14,18 +14,16 @@
 			form.loginPw.value = form.loginPw.value.trim();
 			form.loginPwChk.value = form.loginPwChk.value.trim();
 			form.name.value = form.name.value.trim();
-			form.nickname.value = form.nickname.value.trim();
 			form.cellphoneNum.value = form.cellphoneNum.value.trim();
-			form.email.value = form.email.value.trim();
 			
 			if (form.loginId.value.length == 0) {
-				alert('아이디를 입력해주세요');
+				alert('이메일을 입력해주세요');
 				form.loginId.focus();
 				return;
 			}
 			
 			if (form.loginId.value != validLoginId) {
-				alert(form.loginId.value + '은(는) 사용할 수 없는 아이디입니다');
+				alert(form.loginId.value + '은(는) 사용할 수 없는 이메일입니다');
 				form.loginId.value = '';
 				form.loginId.focus();
 				return;
@@ -56,25 +54,13 @@
 				form.name.focus();
 				return;
 			}
-			
-			if (form.nickname.value.length == 0) {
-				alert('닉네임을 입력해주세요');
-				form.nickname.focus();
-				return;
-			}
-			
+					
 			if (form.cellphoneNum.value.length == 0) {
 				alert('전화번호를 입력해주세요');
 				form.cellphoneNum.focus();
 				return;
 			}
-			
-			if (form.email.value.length == 0) {
-				alert('이메일을 입력해주세요');
-				form.email.focus();
-				return;
-			}
-			
+
 			form.submit();
 		}
 		
@@ -120,52 +106,30 @@
 		
 	</script>
 	
-	<section class="mt-8 text-xl">
-		<div class="container mx-auto px-3">
+	<section class="mt-24 text-xl">
+		<div class="join-box">
+			<h1>회원가입</h1>
 			<form action="doJoin" method="post" onsubmit="joinForm_onSubmit(this); return false;">
-				<div class="table-box-type">
-					<table class="table table-lg">
-						<tr height="110">
-							<th>아이디</th>
-							<td>
-								<input class="input input-bordered input-primary w-9/12" name="loginId" type="text" placeholder="아이디를 입력해주세요" onblur="loginIdDupChk(this);"/>
-								<div id="loginIdDupChkMsg" class="text-sm mt-2 h-5"></div>
-							</td>
-						</tr>
-						<tr>
-							<th>비밀번호</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="loginPw" type="text" placeholder="비밀번호를 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<th>비밀번호 확인</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="loginPwChk" type="text" placeholder="비밀번호 확인을 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<th>이름</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="name" type="text" placeholder="이름을 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<th>닉네임</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="nickname" type="text" placeholder="닉네임을 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<th>전화번호</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="cellphoneNum" type="text" placeholder="전화번호를 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<th>이메일</th>
-							<td><input class="input input-bordered input-primary w-9/12" name="email" type="text" placeholder="이메일을 입력해주세요" /></td>
-						</tr>
-						<tr>
-							<td class="text-center" colspan="2"><button class="btn-text-color btn btn-wide btn-outline">회원가입</button></td>
-						</tr>
-					</table>
-				</div>
+
+				<div class="pb-2 font-medium">이름</div>
+				<input class="input input-bordered input-primary w-full" name="name" type="text" placeholder="이름"/>
+				<div class="space-box h-7"></div>
+				<div class="pb-2 font-medium">팀 이름 (회사 또는 단체명)</div>
+				<input class="input input-bordered input-primary w-full" name="teamName" type="text" placeholder="팀 이름 (회사 또는 단체명)"/>
+				<div class="space-box h-7"></div>
+				<div class="pb-2 font-medium">전화번호</div>
+				<input class="input input-bordered input-primary w-full" name="cellphoneNum" type="text" placeholder="전화번호"/>
+				<div class="space-box h-7"></div>
+				<div class="pb-2 font-medium">이메일</div>
+				<input class="input input-bordered input-primary w-full" name="loginId" type="text" placeholder="이메일"/>
+				<div class="space-box h-7"></div>
+				<div class="pb-2 font-medium">비밀번호</div>
+				<div class="text-sm">비밀번호는 8~20자 영문, 숫자, 특수문자로 입력하세요.</div>
+				<input class="input input-bordered input-primary w-full" name="loginPw" type="text" placeholder="비밀번호" />
+				<div class="space-box h-7"></div>
+				<input class="input input-bordered input-primary w-full" name="loginPwChk" type="text" placeholder="비밀번호 확인" />
+				<button>회원가입</button>
 			</form>
-			
-			<div class="btns mt-2">
-				<button class="btn-text-color btn btn-outline btn-sm" onclick="history.back();">뒤로가기</button>
-			</div>
 		</div>
 	</section>
 	

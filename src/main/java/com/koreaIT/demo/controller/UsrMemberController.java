@@ -46,14 +46,14 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
-	public String doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
+	public String doJoin(String loginId, String loginPw, String name, String teamName, String cellphoneNum) {
 		
 		if (rq.getLoginedMemberId() != 0) {
 			return Util.jsHistoryBack("로그아웃 후 이용해주세요");
 		}
 		
 		if (Util.empty(loginId)) {
-			return Util.jsHistoryBack("아이디를 입력해주세요");
+			return Util.jsHistoryBack("이메일을 입력해주세요");
 		}
 		if (Util.empty(loginPw)) {
 			return Util.jsHistoryBack("비밀번호를 입력해주세요");
@@ -61,15 +61,13 @@ public class UsrMemberController {
 		if (Util.empty(name)) {
 			return Util.jsHistoryBack("이름을 입력해주세요");
 		}
-		if (Util.empty(nickname)) {
-			return Util.jsHistoryBack("닉네임을 입력해주세요");
+		if (Util.empty(teamName)) {
+			return Util.jsHistoryBack("팀 이름 (회사 또는 단체명)을 입력해주세요");
 		}
 		if (Util.empty(cellphoneNum)) {
 			return Util.jsHistoryBack("전화번호를 입력해주세요");
 		}
-		if (Util.empty(email)) {
-			return Util.jsHistoryBack("이메일을 입력해주세요");
-		}
+		
 		
 		Member member = memberService.getMemberByLoginId(loginId);
 		
@@ -77,7 +75,7 @@ public class UsrMemberController {
 			return Util.jsHistoryBack(Util.f("이미 사용중인 아이디(%s) 입니다", loginId));
 		}
 		
-		memberService.joinMember(loginId, loginPw, name, nickname, cellphoneNum, email);
+		memberService.joinMember(loginId, loginPw, name, teamName, cellphoneNum);
 		
 		return Util.jsReplace(Util.f("%s님의 가입이 완료되었습니다", name), "login");
 	}
@@ -114,7 +112,7 @@ public class UsrMemberController {
 		
 		rq.login(member);
 		
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~", member.getNickname()), "/");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~", member.getName()), "/");
 	}
 	
 	@RequestMapping("/usr/member/doLogout")

@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS SB_AM;
-CREATE DATABASE SB_AM;
-USE SB_AM;
+DROP DATABASE IF EXISTS SB_CS;
+CREATE DATABASE SB_CS;
+USE SB_CS;
 
 CREATE TABLE article(
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -18,13 +18,12 @@ CREATE TABLE `member`(
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     regDate DATETIME NOT NULL,
     updateDate DATETIME NOT NULL,
-    loginId VARCHAR(20) NOT NULL,
+    loginId VARCHAR(50) NOT NULL,
     loginPw VARCHAR(100) NOT NULL,
     authLevel SMALLINT UNSIGNED NOT NULL DEFAULT 2 COMMENT '권한 레벨 (일반 = 2, 관리자 = 1)',
     `name` VARCHAR(20) NOT NULL,
-    nickname VARCHAR(20) NOT NULL,
+    teamName VARCHAR(20) NOT NULL,
     cellphoneNum VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL,
     delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴 여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
     delDate DATETIME COMMENT '탈퇴 날짜'
 );
@@ -82,35 +81,33 @@ title = '제목3',
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'admin',
+loginId = 'admin@admin.com',
 loginPw = 'admin',
 authLevel = 1,
 `name` = '관리자',
-nickname = 'admin',
 cellphoneNum = '010-0000-0000',
-email = 'admin@admin.com';
+teamName = '코리아IT';
+
 
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'test1',
+loginId = 'test1@test1.com',
 loginPw = 'test1',
 authLevel = 2,
 `name` = '유저1',
-nickname = 'user1',
 cellphoneNum = '010-1111-2222',
-email = 'test1@test1.com';
+teamName = '코리아IT';
 
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'test2',
+loginId = 'test2@test2.com',
 loginPw = 'test2',
 authLevel = 2,
 `name` = '유저2',
-nickname = 'user2',
 cellphoneNum = '010-2222-3333',
-email = 'test2@test2.com';
+teamName = '코리아IT';
 
 INSERT INTO board
 SET regDate = NOW(),
