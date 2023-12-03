@@ -182,24 +182,3 @@ html > body .ProseMirror, html > body .toastui-editor-contents {
     box-sizing: border-box;
     background-color: #6a8fff;
 }
-
-
-
-.widget-list {
-	display: flex;
-	flex-wrap: wrap;
-	
-}
-.widget-list > .widget {
-    display:inline-block;
-    width: 670px;
-    height: 276px;
-    padding: 17px 0 0;
-    position: relative;
-    background: linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 64.41%),rgba(255,255,255,.75);
-    box-shadow: 0 0 10px rgba(0,0,0,.15);
-    border: 1px solid #fff;
-    border-radius: 13px;
-    transition: all .1s ease;
-    margin: 0 auto;
-}

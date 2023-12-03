@@ -112,7 +112,7 @@ public class UsrMemberController {
 		
 		rq.login(member);
 		
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~", member.getName()), "/");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~", member.getName()), "/usr/dashboard/dashboard");
 	}
 	
 	@RequestMapping("/usr/member/doLogout")
