@@ -12,6 +12,10 @@
 				안녕하세요
 			</div>
 		</div>
+		<div class="test widget-my-prj js-filter-widget update-hr">dsfsdfsdfsfsfddfdsffdsfd
+		sfdsfsdfsdfdsdsdsdsfdsfsddsfddsfddsfdf
+		dfsdfsdf</div>
+		
 	</section>
 	
 	<%@ include file="../common/foot.jsp" %>
